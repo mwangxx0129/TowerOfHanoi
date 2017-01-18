@@ -3,7 +3,7 @@
 
 #include <QWidget>
 //---forward declaration
-//class QWidget;
+
 class QPaintEvent;
 class Pole;
 

@@ -1,14 +1,15 @@
-#include "tower.h"
-#include "ui_tower.h"
-
-#include "disk.h"
-#include "pole.h"
-#include "move.h"
 #include <QQueue>
 #include <QStack>
 #include <QTimer>
 
-float scale = 2.0;
+#include "tower.h"
+#include "ui_tower.h"
+#include "disk.h"
+#include "pole.h"
+#include "move.h"
+
+
+float scale = 1.0;
 Disk *moving = NULL;
 //--
 
@@ -43,7 +44,7 @@ tower::~tower()
 }
 
 void tower::resizeEvent(QResizeEvent *){
-    /*
+
     scale = qMin(width()/(360.0), height()/(300.0));
     ui->pushButton_0->resize(scale * 120, scale * 300); // number should be const
     ui->pushButton_1->resize(scale * 120, scale * 300);
@@ -51,7 +52,6 @@ void tower::resizeEvent(QResizeEvent *){
 
     ui->pushButton_1->move(scale * 120, 0);
     ui->pushButton_2->move(scale * 240,0);
-*/
 }
 
 void tower::CalculateSchedule(int count, int from, int to, int spare)
@@ -126,14 +126,16 @@ void tower::on_actionUndo_triggered()
 
 void tower::on_actionUndo_All_triggered()
 {
-    timer->start(33);//if in mid of auto, it will speed up
+    autoplay = false;
+    timer->start(33);
+
 }
 
 void tower::on_actionAuto_Play_triggered()
 {
     on_actionNew_triggered();
     CalculateSchedule(poles[0]->getNumDisks(),0,2,1);
-    timer->start(500);
+    timer->start(500); // 0.5 second
     autoplay = true;
     ui->pushButton_0->setDisabled(true);
     ui->pushButton_1->setDisabled(true);

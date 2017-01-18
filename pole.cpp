@@ -2,7 +2,11 @@
 #include "disk.h"
 #include "pole.h"
 
+QColor poleColor(127, 0, 0);
+QColor edgePoleColor(0, 0, 0);
 extern int HEIGHT_DISK;
+extern float scale;
+
 Pole::Pole(int _index, int _numDisks, QWidget * _parent)
 {
     this->index = _index;
@@ -19,21 +23,20 @@ Pole::Pole(int _index, int _numDisks, QWidget * _parent)
     raise();
 }
 Pole::~Pole(){
-//    setParent(NULL);
+    //    setParent(NULL);
     for (int i=0;i<numDisks;i++){
         delete stack[i];
     }
 }
 void Pole::paintEvent(QPaintEvent *){
     QPainter p(this);
-    p.setRenderHint(QPainter::Antialiasing);
 
-    QColor poleColor(207, 162, 95);
-    QColor edgePoleColor(0, 0, 0);
+    p.setRenderHint(QPainter::Antialiasing);
+    resize(scale *120, scale *240);
+    p.scale(scale, scale);
+
     p.setPen(edgePoleColor);
     p.setBrush(poleColor);
-    //p.drawRoundedRect(60,90,20,240-(numDisks*23),10,8);
-    //p.drawRoundedRect(60,90,20,100,10,8);
     p.drawRect(56,60,8,140-(numDisks * HEIGHT_DISK));
 
 }
