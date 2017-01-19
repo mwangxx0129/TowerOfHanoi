@@ -3,8 +3,6 @@
 
 #include <QWidget>
 //---forward declaration
-
-class QPaintEvent;
 class Pole;
 
 class Disk: public QWidget

@@ -1,3 +1,4 @@
+#include<QWidget>
 #include <QPainter>
 #include "disk.h"
 #include "pole.h"
@@ -38,6 +39,7 @@ void Pole::paintEvent(QPaintEvent *){
     p.setPen(edgePoleColor);
     p.setBrush(poleColor);
     p.drawRect(56,60,8,140-(numDisks * HEIGHT_DISK));
+    //p.drawRoundedRect(56,80,6,85- numDisks *HEIGHT_DISK, 3,2);
 
 }
 

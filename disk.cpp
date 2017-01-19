@@ -2,12 +2,13 @@
 #include <QPainter>
 #include "disk.h"
 #include "pole.h"
+
 //---------------------------------------------------------|
 extern float scale;
 QColor diskColor(200,200,0);
 QColor diskEdgeColor(100,100,0);
 
-int HEIGHT_DISK = 8; // height of disk
+int HEIGHT_DISK = 5; // height of disk
 int MIN_SIZE_DISK = 10; // min size of disk
 int DIF_SIZE_DISK = 6; // diff between two disks
 
@@ -55,7 +56,7 @@ void Disk::paintEvent(QPaintEvent *){
 
 //---------------------------------------------------------|
 void Disk::Lift(){
-    pos = 30;
+    pos = 35;
     repaint();
 }
 

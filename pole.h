@@ -1,7 +1,6 @@
 #ifndef POLE_H
 #define POLE_H
 
-#include<QWidget>
 //---------------------------------------------------------|
 class QWidget;
 class QPaintEvent;

@@ -1,6 +1,3 @@
-#include <QQueue>
-#include <QStack>
-#include <QTimer>
 
 #include "tower.h"
 #include "ui_tower.h"
