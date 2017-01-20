@@ -4,8 +4,9 @@
 #include <QMainWindow>
 #include <QQueue>
 #include <QStack>
-#include <QQueue>
 #include <QTimer>
+
+#include "move.h"
 
 class Pole;
 class Move;

@@ -9,11 +9,11 @@ QColor diskColor(200,200,0);
 QColor diskEdgeColor(100,100,0);
 
 int HEIGHT_DISK = 5; // height of disk
-int MIN_SIZE_DISK = 10; // min size of disk
-int DIF_SIZE_DISK = 6; // diff between two disks
+const int MIN_SIZE_DISK = 10; // min size of disk
+const int DIF_SIZE_DISK = 6; // diff between two disks
 
-int TOP_X = 6;
-int TOP_Y = 3;
+const int TOP_X = 6; //top ellipse
+const int TOP_Y = 3;
 
 //---------------------------------------------------------|
 Disk::Disk(int _size, int _pos, Pole *_on, QWidget *_parent)

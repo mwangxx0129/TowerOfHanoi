@@ -3,12 +3,9 @@
 #include "ui_tower.h"
 #include "disk.h"
 #include "pole.h"
-#include "move.h"
-
 
 float scale = 1.0;
 Disk *moving = NULL;
-//--
 
 tower::tower(QWidget *parent) :
     QMainWindow(parent),

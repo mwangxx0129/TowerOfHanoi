@@ -1,10 +1,8 @@
 #ifndef DISK_H
 #define DISK_H
 
-#include <QWidget>
 //---forward declaration
 class Pole;
-
 class Disk: public QWidget
 {
 private:
