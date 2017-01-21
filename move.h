@@ -1,6 +1,6 @@
 #ifndef MOVE_H
 #define MOVE_H
-
+//---------------------------------------------------------|
 class Move
 {
     qint16 from;
@@ -10,8 +10,14 @@ public:
     Move(qint16, qint16);
     Move();
 
-    int getFrom() const {return from;}
-    int getTo() const {return to;}
+    int getFrom() const
+    {
+        return from;
+    }
+    int getTo() const
+    {
+        return to;
+    }
 };
 
 #endif // MOVE_H

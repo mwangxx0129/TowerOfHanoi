@@ -5,12 +5,13 @@
 #include <QQueue>
 #include <QStack>
 #include "move.h"
-
+//---------------------------------------------------------|
 class Pole;
 class Move;
 class Disk;
-//---------------------------
-namespace Ui {
+//---------------------------------------------------------|
+namespace Ui
+{
 class tower;
 }
 
@@ -47,6 +48,8 @@ private slots:
 
     void delayedAction();
 
+    void on_horizontalSlider_actionTriggered();
+
 private:
     Ui::tower *ui;
     Pole* poles[3];
@@ -55,11 +58,13 @@ private:
     QStack<Move> undoStack;
 
     QTimer *timer;
+    int interval;
     bool autoplay;
     int value;
-
+    void EnableAllButton(bool );
     void on_pushButton_clicked(Pole * p);
-    void CalculateSchedule(int count, int from, int to, int spare);//... 1. argu 2. to do autopaly 3. slowly to visible
+    void CalculateSchedule(int count, int from, int to, int spare);
+    //... 1. argu 2. to do autopaly 3. slowly to visible
 
 };
 

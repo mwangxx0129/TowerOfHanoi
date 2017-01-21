@@ -1,23 +1,31 @@
 #ifndef DISK_H
 #define DISK_H
-
-//---forward declaration
+//---------------------------------------------------------|
 class Pole;
+
+//---------------------------------------------------------|
 class Disk: public QWidget
 {
 private:
-    Pole *on;
+
     int size; // size of disk
     int pos; // index on pole
+    Pole *on;
 
     void setPolePos(Pole *d, int p);
     void Lift();
-    int Size(){return size;}
+    int Size()
+    {
+        return size;
+    }
 
 public:
-    Disk(int _size, int _pos, Pole *_on, QWidget *_parent);
+    Disk(QWidget *,int, int, Pole *);
     void paintEvent(QPaintEvent *);
-    Pole *On(){return on;}
+    Pole *On()
+    {
+        return on;
+    }
     friend class Pole;
 };
 
