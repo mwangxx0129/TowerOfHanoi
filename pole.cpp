@@ -8,14 +8,11 @@ QColor edgePoleColor(0, 0, 0);
 extern int HEIGHT_DISK;
 extern float scale;
 
-Pole::Pole(int _index, int _numDisks, QWidget * _parent)
+Pole::Pole(int inIndex, int inNumDisks, QWidget * inPar)
+    :QWidget(inPar),index(inIndex),numDisks(inNumDisks)
 {
-    this->index = _index;
-    this->numDisks = _numDisks;
-    this->setParent(_parent);
-
-    for(int i=0;i<_numDisks;i++){
-        Disk* d = new Disk(_numDisks - i,i,this, _parent);
+    for(int i=0;i<numDisks;i++){
+        Disk* d = new Disk(numDisks - i,i,this, inPar);
         stack[i] = d;
     }
 
@@ -38,14 +35,13 @@ void Pole::paintEvent(QPaintEvent *){
 
     p.setPen(edgePoleColor);
     p.setBrush(poleColor);
-    p.drawRect(56,60,8,140-(numDisks * HEIGHT_DISK));
-    //p.drawRoundedRect(56,80,6,85- numDisks *HEIGHT_DISK, 3,2);
+    QRectF rectangle(56,60,8,140-(numDisks * HEIGHT_DISK));
+    p.drawRoundedRect(rectangle,5,5);
 
 }
 
 Disk* Pole::take() //return the top disk on the pole, otherwise NULL
 {
-
     Disk *d = NULL;
     if(numDisks >0){
         d = stack[--numDisks];

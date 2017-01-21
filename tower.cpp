@@ -1,3 +1,4 @@
+#include <QTimer>
 
 #include "tower.h"
 #include "ui_tower.h"
@@ -5,8 +6,8 @@
 #include "pole.h"
 
 float scale = 1.0;
-Disk *moving = NULL;
 
+//---------------------------------------------------------|
 tower::tower(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::tower)
@@ -24,7 +25,7 @@ tower::tower(QWidget *parent) :
 
     autoplay = false;
 }
-
+//---------------------------------------------------------|
 tower::~tower()
 {
     delete ui;
@@ -36,7 +37,7 @@ tower::~tower()
     undoStack.clear();
     schedule.clear();
 }
-
+//---------------------------------------------------------|
 void tower::resizeEvent(QResizeEvent *){
 
     scale = qMin(width()/(360.0), height()/(300.0));
@@ -47,7 +48,7 @@ void tower::resizeEvent(QResizeEvent *){
     ui->pushButton_1->move(scale * 120, 0);
     ui->pushButton_2->move(scale * 240,0);
 }
-
+//---------------------------------------------------------|
 void tower::CalculateSchedule(int count, int from, int to, int spare)
 {
     if(count < 1) return;
@@ -99,7 +100,7 @@ void tower::on_actionExit_triggered()
 {
     close();
 }
-
+//---------------------------------------------------------|
 void tower::on_actionUndo_triggered()
 {
     if(!undoStack.empty()){
@@ -117,20 +118,21 @@ void tower::on_actionUndo_triggered()
         moving = NULL;
     }
 }
-
+//---------------------------------------------------------|
 void tower::on_actionUndo_All_triggered()
 {
     autoplay = false;
     timer->start(33);
 
 }
-
+//---------------------------------------------------------|
 void tower::on_actionAuto_Play_triggered()
 {
     on_actionNew_triggered();
     CalculateSchedule(poles[0]->getNumDisks(),0,2,1);
     timer->start(500); // 0.5 second
     autoplay = true;
+    ui->actionUndo->setDisabled(true);
     ui->pushButton_0->setDisabled(true);
     ui->pushButton_1->setDisabled(true);
     ui->pushButton_2->setDisabled(true);
@@ -155,6 +157,7 @@ void tower::delayedAction()
             ui->pushButton_0->setEnabled(true);
             ui->pushButton_1->setEnabled(true);
             ui->pushButton_2->setEnabled(true);
+            ui->actionUndo->setEnabled(true);
             timer->stop();
         }
 

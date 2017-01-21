@@ -4,22 +4,21 @@
 #include "pole.h"
 
 //---------------------------------------------------------|
-extern float scale;
+extern float scale; // it can be known, in linking *.o
 QColor diskColor(200,200,0);
 QColor diskEdgeColor(100,100,0);
 
 int HEIGHT_DISK = 5; // height of disk
 const int MIN_SIZE_DISK = 10; // min size of disk
-const int DIF_SIZE_DISK = 6; // diff between two disks
+const int DIF_SIZE_DISK = 3; // diff between two disks
 
 const int TOP_X = 6; //top ellipse
 const int TOP_Y = 3;
 
 //---------------------------------------------------------|
-Disk::Disk(int _size, int _pos, Pole *_on, QWidget *_parent)
-    :size(_size), pos(_pos), on(_on)
+Disk::Disk(int inSize, int inPos, Pole *inOn, QWidget *inParent)
+    :QWidget(inParent),size(inSize), pos(inPos), on(inOn)
 {
-    this->setParent(_parent);
     show();
     raise();
 }

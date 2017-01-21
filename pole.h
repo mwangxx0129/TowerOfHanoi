@@ -16,7 +16,7 @@ private:
     int numDisks; // currently on pole
     Disk * stack[MAX_DISKS]; //stack of disks on this pole
 public:
-    Pole(int _index, int _numDisks, QWidget * _parent);
+    Pole(int , int , QWidget * );
     ~Pole();
     void paintEvent(QPaintEvent *);
 

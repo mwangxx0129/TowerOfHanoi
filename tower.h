@@ -4,12 +4,11 @@
 #include <QMainWindow>
 #include <QQueue>
 #include <QStack>
-#include <QTimer>
-
 #include "move.h"
 
 class Pole;
 class Move;
+class Disk;
 //---------------------------
 namespace Ui {
 class tower;
@@ -51,7 +50,7 @@ private slots:
 private:
     Ui::tower *ui;
     Pole* poles[3];
-
+    Disk *moving = NULL;
     QQueue<Move> schedule;
     QStack<Move> undoStack;
 

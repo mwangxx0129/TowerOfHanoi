@@ -3,11 +3,11 @@
 
 class Move
 {
-    int from;
-    int to;
+    qint16 from;
+    qint16 to;
 
 public:
-    Move(int, int);
+    Move(qint16, qint16);
     Move();
 
     int getFrom() const {return from;}

@@ -1,6 +1,7 @@
+#include  <QtGlobal>
 #include "move.h"
 
-Move::Move(int f, int t)
+Move::Move(qint16 f, qint16 t)
     :from(f),to(t)
 {}
 
