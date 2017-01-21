@@ -61,7 +61,6 @@ Disk* Pole::take()
 // put the disk on the pole, true success.
 bool Pole::put(Disk* d)
 {
-
     if(numDisks == 0)
     {
         stack[0] = d;
