@@ -1,7 +1,6 @@
-#include  <QtGlobal> // marco qint16
 #include "move.h"
 //---------------------------------------------------------|
-Move::Move(qint16 f, qint16 t)
+Move::Move(int f, int t)
     :from(f),to(t)
 {}
 //---------------------------------------------------------|
